@@ -1,0 +1,72 @@
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-card>
+        <div>
+          <img src="../../../assets/madison.jpg" />
+          <ion-card-header>
+            <ion-card-subtitle>Destination</ion-card-subtitle>
+            <ion-card-title>Madison, WI</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</p>
+          </ion-card-content>
+        </div>
+        <ion-toolbar>
+          <ion-buttons slot="secondary">
+            <ion-button >
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-card>
+    </ion-row>
+    <ion-row  *ngFor="let note of notes">
+      
+        <ion-card>
+          <div  (click)="onClick('/note', note)">
+            <img src="../../../assets/madison.jpg"/>
+            <ion-card-header>
+              <ion-card-subtitle>{{note.subtitle}}</ion-card-subtitle>
+              <ion-card-title>{{note.title}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical;">{{note.content}}</p>
+             </ion-card-content>
+          </div>
+        <ion-toolbar>
+          <ion-buttons slot="secondary">
+            <ion-button (click)="onDelete(note)">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-card>
+    </ion-row>
+    <ion-row>
+      <ion-textarea autoGrow disabled readonly [(value)]="textValue"> </ion-textarea>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end"  vertical="bottom" slot="fixed" edge>
+    <ion-fab-button  color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light" (click)="onClick('/note')" >
+        <ion-icon name="documents-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="download-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="primary" >summary</ion-title>
+  </ion-toolbar>
+</ion-footer>

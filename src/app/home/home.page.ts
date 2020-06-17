@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { File } from '@ionic-native/file/ngx';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,4 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
-
 }

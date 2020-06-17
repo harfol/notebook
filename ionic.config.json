@@ -1,5 +1,7 @@
 {
   "name": "notebook",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
