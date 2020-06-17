@@ -1,28 +1,6 @@
 <ion-content fullscreen>
   <ion-grid>
-    <ion-row>
-      <ion-card>
-        <div>
-          <img src="../../../assets/madison.jpg" />
-          <ion-card-header>
-            <ion-card-subtitle>Destination</ion-card-subtitle>
-            <ion-card-title>Madison, WI</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</p>
-          </ion-card-content>
-        </div>
-        <ion-toolbar>
-          <ion-buttons slot="secondary">
-            <ion-button >
-              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-card>
-    </ion-row>
     <ion-row  *ngFor="let note of notes">
-      
         <ion-card>
           <div  (click)="onClick('/note', note)">
             <img src="../../../assets/madison.jpg"/>
@@ -43,9 +21,6 @@
         </ion-toolbar>
       </ion-card>
     </ion-row>
-    <ion-row>
-      <ion-textarea autoGrow disabled readonly [(value)]="textValue"> </ion-textarea>
-    </ion-row>
   </ion-grid>
   <ion-fab horizontal="end"  vertical="bottom" slot="fixed" edge>
     <ion-fab-button  color="primary">
@@ -64,7 +39,6 @@
     </ion-fab-list>
   </ion-fab>
 </ion-content>
-
 <ion-footer class="ion-no-border">
   <ion-toolbar>
     <ion-title color="primary" >summary</ion-title>

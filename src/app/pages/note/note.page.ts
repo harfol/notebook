@@ -15,7 +15,6 @@ export class NotePage implements OnInit {
     content: ''
   }
   dataDir:string =this.file.externalDataDirectory;
-  textValue: string = "";
   constructor(
     private file: File,
     private router: Router,
@@ -34,17 +33,12 @@ export class NotePage implements OnInit {
     var fileName = "notes/"+this.note.title.replace(' ', '')+".txt";
     this.file.checkDir(this.dataDir, "notes")
     .then(value => {
-      this.textValue += "[checkDir writeFile]";
-      this.textValue += "[fileName "+fileName+"]";
       var raw = this.note.subtitle+"\r\n" + this.note.title + "\r\n" + this.note.content;
-      this.textValue += "[raw " + raw + "]";
       var blob  = new Blob([raw], { type: 'text/plain' });
       this.file.writeFile(this.dataDir, fileName, blob, {replace: true, append: false})
-        .then(value => {
-          this.textValue += "[then writeFile]";
-          this.router.navigate(['/cover']); 
-          this.textValue += "[then /cover]";
-        })
+      .then(value => {
+        this.router.navigate(['/cover']); 
+      })
     })
     .catch(err => {
       this.file.createDir(this.dataDir, "notes", true);
